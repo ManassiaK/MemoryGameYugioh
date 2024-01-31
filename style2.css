@@ -1,0 +1,129 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    font-size: 1.4rem; /* Adjusted for better readability on mobile */
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  #game {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Adjust the number of cards per row */
+    grid-gap: 15px;
+    padding: 10px;
+    width: 60%; /* Adjust width as needed */
+    max-width: 1000px;
+  }
+  
+  .card {
+    width: 181px; /* Adjust size as needed */
+    height: 265px; /* Adjust size as needed */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .6s;
+    cursor: pointer;
+  }
+  
+  .card .front, 
+  .card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.288);
+  }
+  
+  .card .front {
+    background-color: #ddd; /* Front color */
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/2/2b/Yugioh_Card_Back.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card .back {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  button {
+    padding: 12px 24px; /* Larger for touch screens */
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 18px; /* Larger for readability */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 5px; /* Added spacing */
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  #score {
+    font-size: 1.7rem;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1080px) {
+    #game {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .card {
+      width: 150px; 
+      height: 225px;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    #game {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card {
+      width: 120px;
+      height: 180px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    body {
+      font-size: 1.2rem; 
+    }
+    #game {
+      width: 90%; 
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    .card {
+      width: 100px; 
+      height: 150px;
+    }
+    button {
+      font-size: 16px; 
+    }
+  }
+  
